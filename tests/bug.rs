@@ -1,11 +1,11 @@
-use proc_macro_syn_expr_bug::{identity, expr_identity};
+use proc_macro_grouping_hygiene_bug::*;
 
 macro_rules! foo1 {
 	($expr:expr) => { identity!($expr * $expr) };
 }
 
 macro_rules! foo2 {
-	($expr:expr) => { expr_identity!($expr * $expr) };
+	($expr:expr) => { manual_identity!($expr * $expr) };
 }
 
 #[test]
